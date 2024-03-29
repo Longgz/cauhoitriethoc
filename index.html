@@ -200,9 +200,21 @@
             "Câu 57: Nhận định: “Dân ta có một lòng nồng nàn yêu nước. đó là một truyền thống quý báu của ta. Từ xưa đến này, mỗi khi Tổ quốc bị xâm lăng, thì tinh thần ấy lại sôi nổi, nó kết thành một làn sóng vô cùng mạnh mẽ, to lớn, nó lướt qua mọi sự nguy hiểm, khó khăn, nó nhấn chìm tất cả lũ bãn nước và lũ cướp nước.” được trích từ tác phẩm nào của Hồ Chí Minh"
         ];
 
-        // Lấy phần tử ngẫu nhiên từ mảng lsd
+        var selectedIndexes = [];
+
         function getRandomElement() {
-            return lsd[Math.floor(Math.random() * lsd.length)];
+            if (selectedIndexes.length === lsd.length) {
+                selectedIndexes = [];
+            }
+
+            var index;
+            do {
+                index = Math.floor(Math.random() * lsd.length);
+            } while (selectedIndexes.includes(index));
+
+            selectedIndexes.push(index);
+
+            return lsd[index];
         }
 
         // Hiển thị phần tử ngẫu nhiên khi nút được nhấn
