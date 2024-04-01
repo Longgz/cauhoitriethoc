@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Câu hỏi</title>
     <style>
-        #btn1{
+        button{
             width: 100px;
-            height: 100px;
+            height: 50px;
         }
         #ques{
             font-size: 50px;
@@ -22,11 +22,19 @@
 </head>
 <body>
     <div class="container">
-        <button id="btn1">Random</button>
+        <div>
+            <button id="ktct" class="btn">KTCT</button>
+            <button id="lsd" class="btn">LSĐ</button>
+            <button id="triethoc" class="btn">TrietHoc</button>
+            <button id="tthcm" class="btn">TTHCM</button>
+            <button id="all" class="btn">ALL</button>
+        </div>
+        <button id="btn1" style="margin-top: 5px; height: 100px;">Random</button>
         <p id="ques"></p>
     </div>
 
     <script>
+
         let lsd = [
             "Câu 1. Sự thay đổi về tính chất và mâu thuẫn xã hội ở Việt Nam cuối thế kỷ XIX, đầu thế kỷ XX?",
             "Câu 2. Cuối thế kỷ XIX đầu thế kỷ XX TD Pháp tiến hành mấy cuộc khai thác thuộc địa ở Việt Nam?",
@@ -88,6 +96,9 @@
             "Câu 58: Ba giải pháp đột phá trong công tác xây dựng Đảng nhiệm kỳ Đại hội XIII là?",
             "Câu 59: Mục tiêu cụ thể về phát triển đất nước đến năm 2030 và 2045 được đưa ra tại Đại hội XIII của Đảng?",
             "Câu 60: Các đột phá chiến lược trong nhiệm kỳ Đại hội XIII?",
+        ]
+
+        let triethoc = [
             "Câu 1: Các hình thức cơ bản của chủ nghĩa duy vật?",
             "Câu 2: Các hình thức cơ bản của phép biện chứng.",
             "Câu 3: Những nội dung cơ bản trong phạm trù vật chất mà V.I. Lênin nêu ra:",
@@ -141,6 +152,9 @@
             "Câu 51: Câu Chúng ta không thể tắm hai lần trên cùng một dòng sông là của Nhà triết học cổ đại nào?",
             "Câu 52: Sự khác nhau căn bản giữa phép biện chứng duy vật với phép biện chứng duy tâm?",
             "Câu 53: Trong điếu văn trước mộ C.Mác, Ph.Ăngghen đã nêu lên: Mác có hai phát hiện vĩ đại. Hai phát hiện vĩ đại đó là gì?",
+        ]
+
+        let tthcm = [
             "Câu 1: Nguyễn Tất Thành đến Huế mấy lần? vào những năm nào?",
             "Câu 2: Trước năm 1911, Nguyễn Tất Thành đã làm nghề dạy học ở đâu? Trong bao lâu?",
             "Câu 3: 'Từ Nguyễn Ái Quốc đã tỏa ra một thứ văn hóa, không phải văn hóa Âu Châu mà có lẽ là một nền văn hóa tương lai'. Đây là nhận xét của một người nước ngoài về Nguyễn Ái Quốc? Ông là ai?",
@@ -198,28 +212,83 @@
             "Câu 55. Chiến tranh có thể kéo dài 5 năm, 10 năm, 20 năm hoặc lâu hơn nữa... song, nhân dân Việt Nam quyết không sợ. Không có gì quí hơn độc lập tự do. Đến ngày thắng lợi nhân dân ta sẽ xây dựng lại đất nư¬ớc ta đàng hoàng hơn, to đẹp hơn. Hồ Chí Minh nói câu đó ở trong văn kiện nào?",
             "Câu 56. Đảng ta là một Đảng cầm quyền. Mỗi đảng viên và cán bộ phải thật sự thấm nhuần đạo đức cách mạng, thật sự cần kiệm liêm chính, chí công vô tư¬. Phải giữ gìn Đảng ta thật trong sạch, phải xứng đáng là người lãnh đạo, là người đầy tớ thật trung thành của nhân dân. Câu nói trên của Hồ Chí Minh ở trong tác phẩm nào của Người?",
             "Câu 57: Nhận định: “Dân ta có một lòng nồng nàn yêu nước. đó là một truyền thống quý báu của ta. Từ xưa đến này, mỗi khi Tổ quốc bị xâm lăng, thì tinh thần ấy lại sôi nổi, nó kết thành một làn sóng vô cùng mạnh mẽ, to lớn, nó lướt qua mọi sự nguy hiểm, khó khăn, nó nhấn chìm tất cả lũ bãn nước và lũ cướp nước.” được trích từ tác phẩm nào của Hồ Chí Minh"
-        ];
+        ]
+
+        let ktct = [
+            "Câu 1. Lênin đã phân tích và nêu ra những đặc điểm kinh tế cơ bản của CNTB độc quyền. Đó là những đặc điểm nào?",
+            "Câu 2. Chỗ khác nhau chủ yếu nhất giữa hàng hoá Sức lao động và hàng hoá thông thường là gì?",
+            "Câu 3. Tích luỹ tư bản và tích luỹ nguyên thuỷ của tư bản khác nhau ở những điểm cơ bản nào?",
+            "Câu 4. Tiền, Sức lao động, tư bản cho vay có phải là hàng hoá đặc biệt không? Vì sao?",
+            "Câu 5. Sự khác nhau về nguồn gốc giá trị hàng hoá và giá trị thặng dư thế nào?",
+            "Câu 6. Nguyên nhân sâu xa nhất của khủng hoảng kinh tế TBCN là gì?",
+            "Câu 7. Nếu nhà tư bản trả công đúng giá trị Sức lao động thì có còn bóc lột giá trị thặng dư không, vì sao?",
+            "Câu 8. Giá trị và giá trị thặng dư giống nhau và khác nhau thế nào?",
+            "Câu 9. Việc mua bán hàng hoá Sức lao động có đặc điểm gì khác mua bán hàng hoá thông thường?",
+            "Câu 10. Xuất khẩu tư bản và xuất khẩu hàng hoá khác nhau thế nào?",
+            "Câu 11. Quy luật chung của tích luỹ tư bản là gì?",
+            "Câu 12. Giá cả ruộng đất và giá cả hàng hoá thông thường khác nhau thế nào?",
+            "Câu 13. Nếu nhà tư bản trả công đúng giá trị sức lao động thì có còn bóc lột giá trị thặng dư không, vì sao?",
+            "Câu 14. Tại sao nói sản xuất hàng hoá giản đơn là khởi điểm ra đời của sản xuất hàng hoá TBCN?",
+            "Câu 15. Tại sao gọi tiền là hàng hoá đặc biệt?",
+            "Câu 16. Cặp phạm trù lao động cụ thể và la o động trừu tượng có quan hệ với cặp phạm trù lao động tư nhân và lao động xã hội không? Tại sao?",
+            "Câu 17. Tích tụ tư bản và tập trung tư bản giống nhau và khác nhau ở điểm chủ yếu nào?",
+            "Câu 18. Thế nào là tăng trưởng kinh tế bền vững?",
+            "Câu 19. Những nguyên tắc cơ bản trong mở rộng và nâng cao hiệu quả kinh tế đối ngoại là gì? ",
+            "Câu 20. Để công nghiệp hoá, hiện đại hoá thành công cần có những tiền đề gì?",
+            "Câu 21. Vì sao gọi tư bản cho vay là hàng hoá đặc biệt?",
+            "Câu 22. Việc mua bán nô lệ trước đây và mua bán sức lao động có gì giống và khác nhau? Vì sao?",
+            "Câu 23. Sản xuất và tiêu dùng có quan hệ với nhau thế nào?",
+            "Câu 24. Đặc trưng cơ bản của nền kinh tế thị trường định hướng XHCN được Đại hội Đảng lần thứ XIII xác định là gì? ",
+            "Câu 25. Kinh tế thị trường định hướng XHCN có đặc trưng gì khác so với kinh tế thị trường ở các nước TBCN?",
+            "Câu 26. Tại sao trong TKQĐ lên CNXH ở nước ta còn tồn tại nhiều hình thức phân phối thu nhập cá nhân?",
+            "Câu 27. Các quan hệ phân phối thu nhập vừa có tính đồng nhất vừa có tính lịch sử. Tính đồng nhất và tính lịch sử của quan hệ phân phối thể hiện thế nào?",
+            "Câu 28. Trong TKQĐ ở nước ta có những hình thức phân phối thu nhập chủ yếu nào? ",
+            "Câu 30. Để phát triển kinh tế nông nghiệp, nông thôn, Nhà nước cần thực hiện những chính sách gì? ",
+            "Câu 31. Trong TKQĐ lên CNXH ở nước ta phải thực hiện những nhiệm vụ kinh tế cơ bản nào? "
+        ]
+
+        let all = lsd.concat(triethoc, tthcm, ktct);
 
         var selectedIndexes = [];
+        var currentTypeQues = all;
 
-        function getRandomElement() {
-            if (selectedIndexes.length === lsd.length) {
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonId = this.id;
+                this.disabled = true;
+                buttons.forEach(btn => {
+                    if (btn.id !== buttonId) {
+                        btn.disabled = false;
+                    }
+                });
+                if (buttonId === 'lsd') currentTypeQues = lsd;
+                else if (buttonId === 'triethoc') currentTypeQues = triethoc;
+                else if (buttonId === 'tthcm') currentTypeQues = tthcm;
+                else if (buttonId === 'ktct') currentTypeQues = ktct;
+                else if (buttonId === 'all') currentTypeQues = all;
+                selectedIndexes = [];
+            });
+        });
+        
+        function getRandomElement(typeQues) {
+            if (selectedIndexes.length === typeQues.length) {
                 selectedIndexes = [];
             }
 
             var index;
             do {
-                index = Math.floor(Math.random() * lsd.length);
+                index = Math.floor(Math.random() * typeQues.length);
             } while (selectedIndexes.includes(index));
 
             selectedIndexes.push(index);
 
-            return lsd[index];
+            return typeQues[index];
         }
 
         // Hiển thị phần tử ngẫu nhiên khi nút được nhấn
         document.getElementById("btn1").addEventListener("click", function() {
-            document.getElementById("ques").innerText = getRandomElement();
+            document.getElementById("ques").innerText = getRandomElement(currentTypeQues);
         });
     </script>
 </body>
