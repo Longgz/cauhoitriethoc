@@ -18,10 +18,14 @@
             height: 100vh; /* Để đảm bảo div hiển thị giữa trang */
             flex-direction: column;
         }
+        #id {
+            display: inline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <p id="daTL">Đã trả lời</p>
         <div>
             <button id="ktct" class="btn">KTCT</button>
             <button id="lsd" class="btn">LSĐ</button>
@@ -318,6 +322,7 @@
         // Hiển thị phần tử ngẫu nhiên khi nút được nhấn
         document.getElementById("btn1").addEventListener("click", function() {
             document.getElementById("ques").innerText = getRandomElement(currentTypeQues);
+            document.getElementById("daTL").innerText = `Đã trả lời: ${selectedIndexes.length} câu`;
         });
     </script>
 </body>
