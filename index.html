@@ -25,7 +25,8 @@
 </head>
 <body>
     <div class="container">
-        <p id="daTL">Đã trả lời</p>
+        <p id="daTL" style="margin: 0; padding: 0;">Đã trả lời</p>
+        <p id="timeCount" style="margin: 0; padding: 0;">Thời gian trả lời: s</p>
         <div>
             <button id="ktct" class="btn">KTCT</button>
             <button id="lsd" class="btn">LSĐ</button>
@@ -39,7 +40,7 @@
     </div>
 
     <script>
-
+        
         let lsd = [
             "Câu 1. Sự thay đổi về tính chất và mâu thuẫn xã hội ở Việt Nam cuối thế kỷ XIX, đầu thế kỷ XX?",
             "Câu 5. Cương lĩnh chính trị đầu tiên của Đảng gồm những văn kiện nào? Tư tưởng chủ yếu của Cương lĩnh chính trị đầu tiên?  ",
@@ -206,6 +207,8 @@
             "Câu 58: Những hạn chế về phát huy dân chủ xã hội chủ nghĩa được xác định trong Văn kiện ĐH XIII của Đảng?"
         ]
 
+        let time_count = 40
+
         let all = lsd.concat(triethoc, tthcm, ktct, cnxhkh);
 
         var selectedIndexes = [];
@@ -246,10 +249,26 @@
             return typeQues[index];
         }
 
+        timeCountEl = document.getElementById("timeCount");
+
+        function countdown() {
+            if (time_count === 0) {
+                clearInterval(interval);
+            } else {
+                time_count--;
+                timeCountEl.innerText = `Thời gian trả lời: ${time_count}s`;
+            }
+        }
+
+        let interval = setInterval(countdown, 1000);
+
         // Hiển thị phần tử ngẫu nhiên khi nút được nhấn
         document.getElementById("btn1").addEventListener("click", function() {
+            clearInterval(interval);
             document.getElementById("ques").innerText = getRandomElement(currentTypeQues);
             document.getElementById("daTL").innerText = `Đã trả lời: ${selectedIndexes.length} câu`;
+            time_count = 40;
+            interval = setInterval(countdown, 1000);
         });
     </script>
 </body>
